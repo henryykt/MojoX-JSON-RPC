@@ -322,6 +322,7 @@ is executed correctly.
     my $client = MojoX::JSON::RPC::Client->new;
     my $url    = 'http://www.example.com/jsonrpc/API';
     my $callobj = {
+        id      => 1,
         method  => 'sum',
         params  => [ 17, 25 ]
     };
