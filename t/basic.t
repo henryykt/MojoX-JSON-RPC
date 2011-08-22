@@ -160,7 +160,7 @@ use Test::Mojo;
 use_ok 'MojoX::JSON::RPC::Service';
 use_ok 'MojoX::JSON::RPC::Client';
 
-my $t = Test::Mojo->new( app => 'MojoxJsonRpc' );
+my $t = Test::Mojo->new( 'MojoxJsonRpc' );
 my $client = MojoX::JSON::RPC::Client->new( ua => $t->ua );
 my $res;
 

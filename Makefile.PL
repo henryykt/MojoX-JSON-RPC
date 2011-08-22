@@ -11,7 +11,7 @@ WriteMakefile(
     NAME         => 'MojoX::JSON::RPC',
     VERSION_FROM => 'lib/MojoX/JSON/RPC.pm',
     AUTHOR       => 'Henry Tang <henryykt@gmail.com>',
-    PREREQ_PM    => { 'Mojolicious' => '1.22' },
+    PREREQ_PM    => { 'Mojolicious' => '1.86' },
     LICENSE      => 'artistic_2',
     test         => { TESTS => 't/*.t t/*/*.t t/*/*/*.t' }
 );

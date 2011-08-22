@@ -18,7 +18,7 @@ use Mojolicious::Lite;
 use MojoX::JSON::RPC::Service;
 
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
-plugin 'pod_renderer';
+plugin 'PODRenderer';
 
 plugin 'json_rpc_dispatcher' => {
     services => {
@@ -60,7 +60,7 @@ use Test::Mojo;
 
 use_ok 'MojoX::JSON::RPC::Client';
 
-my $t = Test::Mojo->new( app => app );
+my $t = Test::Mojo->new( app );
 my $client = MojoX::JSON::RPC::Client->new( ua => $t->ua );
 
 TestUts::test_call(
