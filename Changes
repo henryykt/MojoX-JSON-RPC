@@ -1,4 +1,7 @@
 This file documents the revision history for Perl extension MojoX::JSON::RPC.
 
+0.02 2011-12-22 00:00:00
+     - Updated req. to Mojolicious 1.86 and fixed some deprecation warnings in tests
+
 0.01 2011-05-07 00:00:00
      - First release.
