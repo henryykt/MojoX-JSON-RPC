@@ -103,7 +103,7 @@ sub _process_result {
     $self->tx($tx);    # save latest transaction
 
     my $tx_res = $tx->res;
-    my $log    = $self->ua->log;
+    my $log    = $self->ua->app->log;
     if ( $log->is_debug ) {
         $log->debug( 'TX BODY: [' . $tx_res->body . ']' );
     }
