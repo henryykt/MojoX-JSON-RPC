@@ -176,6 +176,8 @@ METHOD:
                             && $rpc->{with_svc_obj} ? $service : (),
                         exists $rpc->{with_mojo_tx}
                             && $rpc->{with_mojo_tx} ? $self->tx : (),
+                        exists $rpc->{with_self}
+                            && $rpc->{with_self} ? $self : (),
                         defined $m->params
                         ? ref $m->params eq 'ARRAY'
                                 ? @{ $m->params }
