@@ -61,7 +61,7 @@ sub register {
 
     my %obj = ( method => $sub );
 OPTION:
-    foreach my $opt ( 'with_mojo_tx', 'with_svc_obj' ) {
+    foreach my $opt ( 'with_mojo_tx', 'with_svc_obj', 'with_self' ) {
         if ( !exists $options->{$opt} ) {
             next OPTION;
         }
