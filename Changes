@@ -1,5 +1,9 @@
 This file documents the revision history for Perl extension MojoX::JSON::RPC.
 
+0.04 2012-05-14 00:00:00
+     - Added 'with_self' option which gives access to the controller object itself (iafan)
+     - Added tests for 'with_self'
+
 0.03 2012-02-20 00:00:00
      - Fixed: log attribute is removed from Mojo::UserAgent in Mojolicious 2.39.
 

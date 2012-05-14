@@ -2,7 +2,7 @@ package MojoX::JSON::RPC;
 
 use strict;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 1;
 
@@ -116,9 +116,17 @@ L<MojoX::JSON::RPC::Client>
 
 Henry Tang
 
+=head1 CREDITS
+
+=over 2
+
+Igor Afanasyev
+
+=back
+
 =head1 COPYRIGHT & LICENSE
 
-Copyright (C) 2011 Henry Tang.
+Copyright (C) 2011-2012, Henry Tang.
 
 MojoX::JSON::RPC is provided "as is" and without any express or
 implied warranties, including, without limitation, the implied warranties
