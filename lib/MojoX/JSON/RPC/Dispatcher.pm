@@ -25,7 +25,7 @@ sub call {
         )
     );
     $res->headers->content_type('application/json-rpc');
-    return $self->render_json($rpc_response);
+    return $self->render(json => $rpc_response);
 }
 
 sub _acquire_methods {

@@ -1,5 +1,9 @@
 This file documents the revision history for Perl extension MojoX::JSON::RPC.
 
+0.05 2013-05-26 00:00:00
+     - remove use of render_json to make Mojolicious 4.0 happy
+     - Updated PREREQ_PM to Mojolicious 4.00
+
 0.04 2012-05-14 00:00:00
      - Added 'with_self' option which gives access to the controller object itself (iafan)
      - Added tests for 'with_self'
