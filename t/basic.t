@@ -87,7 +87,7 @@ use MojoX::JSON::RPC::Service;
 sub startup {
     my $self = shift;
 
-    $self->secret('Testing!');
+    $self->secrets(['Testing!']);
 
     # Load our test plugin
     my $svc = MojoX::JSON::RPC::Service->new->register(

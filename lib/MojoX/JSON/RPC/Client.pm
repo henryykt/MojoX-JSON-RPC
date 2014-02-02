@@ -103,8 +103,8 @@ sub _process_result {
     $self->tx($tx);    # save latest transaction
 
     my $tx_res = $tx->res;
-    my $log    = $self->ua->app->log;
-    if ( $log->is_debug ) {
+    my $log = $self->ua->server->app->log if $self->ua->server->app;
+    if ( $log && $log->is_debug ) {
         $log->debug( 'TX BODY: [' . $tx_res->body . ']' );
     }
 
@@ -116,7 +116,7 @@ sub _process_result {
 
     my $json = $self->json;
     my $rpc_res = $json->decode( $tx_res->body || '{}' );
-    if ( $json->error ) {    # Server result cannot be parsed!
+    if ( $json->error && $log ) {    # Server result cannot be parsed!
         $log->error( 'Cannot parse rpc result: ' . $json->error );
         return;
     }
@@ -126,7 +126,7 @@ sub _process_result {
         ? [
         map {
             MojoX::JSON::RPC::Client::ReturnObject->new( rpc_response => $_ )
-            } ( @{$rpc_res} )
+        } ( @{$rpc_res} )
         ]
         : MojoX::JSON::RPC::Client::ReturnObject->new(
         rpc_response => $rpc_res );

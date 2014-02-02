@@ -1,5 +1,12 @@
 This file documents the revision history for Perl extension MojoX::JSON::RPC.
 
+0.06 2014-02-02 00:00:00
+     - Fixed: #87793: The client cannot be used independently
+     - Fixed: #92613: Deprecated use of Mojo::UserAgent::app
+     - Fixed: Deprecated use of Mojolicious::secret
+     - Updated PREREQ_PM to Mojolicious 4.74
+     - Updated copyright to 2014
+
 0.05 2013-05-26 00:00:00
      - remove use of render_json to make Mojolicious 4.0 happy
      - Updated PREREQ_PM to Mojolicious 4.00
