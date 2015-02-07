@@ -1,5 +1,11 @@
 This file documents the revision history for Perl extension MojoX::JSON::RPC.
 
+0.07 2015-02-07 00:00:00
+     - Replace OO-interface of Mojo::JSON with functional interface (reneeb)
+     - Add metaresources to Makefile.PL (reneeb)
+     - Updated PREREQ_PM to Mojolicious 5.77
+     - Updated copyright to 2015
+
 0.06 2014-02-02 00:00:00
      - Fixed: #87793: The client cannot be used independently
      - Fixed: #92613: Deprecated use of Mojo::UserAgent::app

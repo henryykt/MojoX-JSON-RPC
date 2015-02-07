@@ -2,7 +2,7 @@ package MojoX::JSON::RPC;
 
 use strict;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 1;
 
@@ -121,12 +121,13 @@ Henry Tang
 =over 2
 
 Igor Afanasyev
+Renee Baecker (https://github.com/reneeb)
 
 =back
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright (C) 2011-2014, Henry Tang.
+Copyright (C) 2011-2015, Henry Tang.
 
 MojoX::JSON::RPC is provided "as is" and without any express or
 implied warranties, including, without limitation, the implied warranties
@@ -136,6 +137,3 @@ This program is free software, you can redistribute it and/or modify it
 under the terms of the Artistic License version 2.0.
 
 =cut
-
-
-
