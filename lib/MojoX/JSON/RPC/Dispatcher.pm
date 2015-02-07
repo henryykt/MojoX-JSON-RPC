@@ -1,11 +1,9 @@
 package MojoX::JSON::RPC::Dispatcher;
 
 use Mojo::Base 'Mojolicious::Controller';
-use Mojo::JSON;
+use Mojo::JSON qw(decode_json);
 use MojoX::JSON::RPC::Dispatcher::Method;
 use MojoX::JSON::RPC::Service;
-
-has json => sub { Mojo::JSON->new };
 
 # process JSON-RPC call
 sub call {
@@ -34,18 +32,19 @@ sub _acquire_methods {
     my $log    = $self->app->log;
     my $req    = $self->req;        # Mojo::Message::Request object
     my $method = $req->method;      # GET / POST
-    my $json   = $self->json;
     my $request;
 
     if ( $method eq 'POST' ) {
         if ( $log->is_debug ) {
             $log->debug( 'REQUEST: BODY> ' . $req->body );
         }
-        $request = $json->decode( $req->body );
-        if ( $json->error ) {
-            $log->debug( 'REQUEST: JSON error> ' . $json->error );
+        
+        my $decode_error;
+        eval{ $request = decode_json( $req->body ); 1; } or $decode_error = $@;
+        if ( $decode_error ) {
+            $log->debug( 'REQUEST: JSON error> ' . $decode_error );
             return MojoX::JSON::RPC::Dispatcher::Method->new->parse_error(
-                $json->error );
+                $decode_error );
         }
     }
     elsif ( $method eq 'GET' ) {
@@ -53,10 +52,12 @@ sub _acquire_methods {
         my $decoded_params;
 
         if ( exists $params->{params} ) {
-            $decoded_params = $json->decode( $params->{params} );
-            if ( $json->error ) {
+            my $decode_error;
+            eval{ $decoded_params = decode_json( $params->{params} ); 1; } or $decode_error = $@;
+            
+            if ( $decode_error ) {
                 return MojoX::JSON::RPC::Dispatcher::Method->new->parse_error(
-                    $json->error );
+                    $decode_error );
             }
         }
         $request = {

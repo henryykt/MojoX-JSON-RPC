@@ -1,12 +1,11 @@
 package MojoX::JSON::RPC::Client;
 
 use Mojo::Base -base;
-use Mojo::JSON;
+use Mojo::JSON qw(encode_json decode_json);
 use Mojo::UserAgent;
 
 has id           => undef;
 has ua           => sub { Mojo::UserAgent->new };
-has json         => sub { Mojo::JSON->new };
 has version      => '2.0';
 has content_type => 'application/json';
 has tx           => undef;                          # latest transaction
@@ -19,7 +18,7 @@ sub call {
         foreach my $o ( ref $body eq 'HASH' ? $body : @{$body} ) {
             $o->{version} ||= $self->version;
         }
-        $body = $self->json->encode($body);
+        $body = encode_json($body);
     }
     else {
         $body ||= q{};
@@ -114,10 +113,12 @@ sub _process_result {
         return;
     }
 
-    my $json = $self->json;
-    my $rpc_res = $json->decode( $tx_res->body || '{}' );
-    if ( $json->error && $log ) {    # Server result cannot be parsed!
-        $log->error( 'Cannot parse rpc result: ' . $json->error );
+    my $decode_error;
+    my $rpc_res;
+    
+    eval{ $rpc_res = decode_json( $tx_res->body || '{}' ); 1; } or $decode_error = $@;
+    if ( $decode_error && $log ) {    # Server result cannot be parsed!
+        $log->error( 'Cannot parse rpc result: ' . $decode_error );
         return;
     }
 
