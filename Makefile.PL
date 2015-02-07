@@ -14,5 +14,15 @@ WriteMakefile(
     AUTHOR       => 'Henry Tang <henryykt@gmail.com>',
     PREREQ_PM    => { 'Mojolicious' => '4.74' },
     LICENSE      => 'artistic_2',
-    test         => { TESTS => 't/*.t t/*/*.t t/*/*/*.t' }
+    test         => { TESTS => 't/*.t t/*/*.t t/*/*/*.t' },
+    META_MERGE => {
+        'meta-spec' => { version => 2 },
+        resources => {
+            repository => {
+                type => 'git',
+                url => 'https://github.com/henryykt/MojoX-JSON-RPC.git',
+                web => 'https://github.com/henryykt/MojoX-JSON-RPC',
+            },
+        },
+    },
 );
