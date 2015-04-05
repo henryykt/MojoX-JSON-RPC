@@ -4,3 +4,6 @@
 ^Makefile$
 ^MYMETA\.(?:json|yml)$
 ^\.git
+^_eumm/
+^MojoX-JSON-RPC-[0-9]
+~$
