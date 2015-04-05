@@ -3,6 +3,9 @@ This file documents the revision history for Perl extension MojoX::JSON::RPC.
 0.09 Unknown
      - Remove executable flag from "Makefile.PL".
             - CPANTS Kwalitee and good practice.
+     - Put MYMETA.yml and MYMETA.json in MANIFEST.SKIP
+            - Also remove them from the distribution.
+            - Kwalitee and good practice.
 
 0.08 2015-02-08 00:00:00
      - Fixed typo in credit
