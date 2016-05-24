@@ -35,7 +35,7 @@ sub _acquire_methods {
     my $request;
 
     if ( $method eq 'POST' ) {
-        if ( $log->is_debug ) {
+        if ( $log->is_level('debug') ) {
             $log->debug( 'REQUEST: BODY> ' . $req->body );
         }
         
