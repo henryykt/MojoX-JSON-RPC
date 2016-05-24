@@ -2,7 +2,7 @@ package MojoX::JSON::RPC;
 
 use strict;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 1;
 
@@ -124,11 +124,13 @@ Igor Afanasyev
 
 Renee Baecker (https://github.com/reneeb)
 
+Vidar Tyldum <vidar@tyldum.com>
+
 =back
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright (C) 2011-2015, Henry Tang.
+Copyright (C) 2011-2016, Henry Tang.
 
 MojoX::JSON::RPC is provided "as is" and without any express or
 implied warranties, including, without limitation, the implied warranties
