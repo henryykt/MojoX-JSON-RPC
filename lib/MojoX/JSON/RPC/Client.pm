@@ -103,7 +103,7 @@ sub _process_result {
 
     my $tx_res = $tx->res;
     my $log = $self->ua->server->app->log if $self->ua->server->app;
-    if ( $log && $log->is_debug ) {
+    if ( $log && $log->is_level('debug') ) {
         $log->debug( 'TX BODY: [' . $tx_res->body . ']' );
     }
 
