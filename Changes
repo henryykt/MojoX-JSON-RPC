@@ -1,5 +1,8 @@
 This file documents the revision history for Perl extension MojoX::JSON::RPC.
 
+0.10 2016-06-02 00:00:00
+     - Bumped version. 0.0.9 was packaged incorrectly.
+
 0.09 2016-05-24 00:00:00
      - is_debug is deprecated and removed from Mojo::Log (Vidar Tyldum <vidar@tyldum.com>)
      - Updated copyright to 2016
